@@ -18,7 +18,7 @@ def display_playlist():
         counter += 1
         print(f"{counter}. {playlist[k][0]}")
 
-    print(f"0. Exit to desktop 😢")
+    print("\n0. Exit to desktop 😢")
 
     selection = input("Enter your choice : ")
     if selection == "0":
@@ -30,5 +30,5 @@ def display_playlist():
 if __name__ == "__main__":
     while True:
         system("cls")
-        print("Fun with python 🐍!")
+        print("\nFun with python 🐍!\n")
         display_playlist()
