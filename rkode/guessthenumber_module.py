@@ -5,7 +5,7 @@ class GuessTheNumber:
         guess_count = 0
         guess = randrange(min_guess_limit, max_guess_limit)
         while(True):
-            my_guess = int(input("::: "))
+            my_guess = int(input("gueess : "))
             guess_count +=1
             if(my_guess > guess):
                 print("Sry. Your guess is too high to compare.")

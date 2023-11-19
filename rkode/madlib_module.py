@@ -1,10 +1,11 @@
-import json
+from json import load
 from random import randrange
+from rkode.constant import MADLIB_DICT_PATH as data_path
 
 class Madlib:
     def __init__(self):
-        with open("./rkode/jsonData/madlib_dict.json", mode = 'r', encoding = 'utf-8', errors = 'strict', buffering = 1) as file:
-            self.content = json.load(file)
+        with open(data_path, mode = 'r', encoding = 'utf-8', errors = 'strict', buffering = 1) as file:
+            self.content = load(file)
             print(f"{len(self.content)} madlibs found.")
 
     def pick_any_madlib(self):
