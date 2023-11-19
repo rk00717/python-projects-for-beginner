@@ -36,3 +36,6 @@ class Madlib:
         content = self.content
         self.input_values = self.take_inputs(content[self.selected_madlib]["inputs"])
         self.display_madlib()
+
+    def start_game(self):
+        self.get_new_madlib()

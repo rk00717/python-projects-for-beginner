@@ -1,26 +1,34 @@
+from os import system
+
 from rkode.madlib_module import Madlib
 from rkode.guessthenumber_module import GuessTheNumber
 from rkode.rockpaperscissor_module import RockPaperScissor
 from rkode.hangman_module import Hangman
 
-def play_madlib():
-    game_instance = Madlib()
-    game_instance.get_new_madlib()
+playlist = {
+    "1": ["Madlib 🎓", Madlib()],
+    "2": ["Guess The Number 🔢", GuessTheNumber()],
+    "3": ["Rock Paper Scissor 🤞", RockPaperScissor()],
+    "4": ["Hangman 💔", Hangman()]
+}
 
-def play_guessthenumber():
-    game_instance = GuessTheNumber()
-    game_instance.start_game()
+def display_playlist():
+    counter = 0
+    for k in playlist.keys():
+        counter += 1
+        print(f"{counter}. {playlist[k][0]}")
 
-def play_rockpaperscissor():
-    game_instance = RockPaperScissor()
-    game_instance.start_game()
+    print(f"0. Exit to desktop 😢")
 
-def play_hangman():
-    game_instance = Hangman()
+    selection = input("Enter your choice : ")
+    if selection == "0":
+        exit()
+
+    game_instance = playlist[selection][1]
     game_instance.start_game()
 
 if __name__ == "__main__":
-    # play_madlib()
-    # play_guessthenumber()
-    # play_rockpaperscissor()
-    play_hangman()
+    while True:
+        system("cls")
+        print("Fun with python 🐍!")
+        display_playlist()
