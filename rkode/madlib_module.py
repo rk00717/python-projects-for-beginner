@@ -1,7 +1,7 @@
 import json
 from random import randrange
 
-class madlib:
+class Madlib:
     def __init__(self):
         with open("./rkode/jsonData/madlib_dict.json", mode = 'r', encoding = 'utf-8', errors = 'strict', buffering = 1) as file:
             self.content = json.load(file)
