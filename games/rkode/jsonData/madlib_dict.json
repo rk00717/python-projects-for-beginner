@@ -1,35 +1,288 @@
 {
     "1":{
-        "inputs":[
-            "ADJECTIVE : ",
-            "BODY PART : ",
-            "PERSON IN ROOM : ",
-            "PLURAL NOUN : ",
-            "PLURAL NOUN : ",
-            "VERB ENDING IN “ING” : ",
-            "ADJECTIVE : ",
-            "ADJECTIVE : ",
-            "ADJECTIVE : ",
-            "ADJECTIVE : ",
-            "PLURAL NOUN : ",
-            "VERB : ",
-            "VERB ENDING IN “ING” : ",
-            "VERB : ",
-            "BODY PART : ",
-            "NOUN : ",
-            "ADJECTIVE : ",
-            "PLURAL NOUN : ",
-            "ADJECTIVE : ",
-            "PLURAL NOUN : ",
-            "VERB : ",
-            "ADJECTIVE : ",
-            "ADJECTIVE : ",
-            "VERB ENDING IN “ING” : ",
-            "VERB : "
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: "
         ],
-        "paragraph":"In today’s {} digital landscape, content marketers must be sure to keep their {} on the pulse of the customer. Online, you have no more than a few seconds to grab {}’s attention. So how can marketers keep the “fun factor” in mind when it comes to communications? First, think like your {} or {}. What are they {}? What are their likes or dislikes? Once you have your {} audience in mind, you can get to work on your messaging. There’s no magic formula for going viral; rather, you can increase your chances of being seen by coming up with {}, {} ideas that are cleverly packaged. Remember, Content is King but, with more than 53 million WordPress blogs online, what makes yours {}? What are your {} writing about? Do your research!  The key is to {} your prospects something new, introduce them to a new way of {} or doing business, and provide content they can’t wait to share with their colleagues. One way to {} the word is through social media platforms like {}-book and Twitter. Face-{} allows you to create an/an {} profile, add other {} as friends, and exchange {} messages. Twitter is a great way to stay in touch with clients and {} and share relevant content. But be careful not to {} content where it doesn’t belong. Be {} and judicious in this practice to avoid ending up in the {} box. These are just some suggestions for {} compelling content; above all, be sure to {} the right message to the right audience at the right time."
-    },
+        "paragraph": "The {} {} decided to {} and it turned into the most {} adventure ever."
+    },    
     "2":{
-        
-    }
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: ",
+            "ADJECTIVE: ",
+            "PLURAL NOUN: ",
+            "BODY PART: ",
+            "VERB ENDING IN 'ING': "
+        ],
+        "paragraph": "In a {} town, a {} loved to {} while {}. One day, its {} started {} and {} in the most {} way imaginable!"
+    },
+    "3":{
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: ",
+            "ADJECTIVE: ",
+            "PLURAL NOUN: ",
+            "BODY PART: ",
+            "VERB ENDING IN 'ING': "
+        ],
+        "paragraph": "Once upon a {} night, a {} decided to {} {} {}. Little did it know, its {} began {} and {} uncontrollably!"
+    },
+    "4":{
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: ",
+            "ADJECTIVE: ",
+            "PLURAL NOUN: ",
+            "BODY PART: ",
+            "VERB ENDING IN 'ING': "
+        ],
+        "paragraph": "Once upon a time, in a land of magic, there lived a mischievous. One day, it decided to {} through the enchanted forest. Along the way, it encountered {} who were busy {} with their {}. Suddenly, the mischievous {} started {} and {} its way into a world of laughter and {} adventures."
+    },
+    "5":{
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: ",
+            "ADJECTIVE: ",
+            "PLURAL NOUN: ",
+            "BODY PART: ",
+            "VERB ENDING IN 'ING': "
+        ],
+        "paragraph": "In a {} galaxy, a {} liked to {} while {}. Its {} would start {} and {} every time it embarked on a {} journey."
+    },
+    "6":{
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: "
+        ],
+        "paragraph": "Once upon a {} time, a {} decided to {} {}."
+    },
+    "7":{
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: "
+        ],
+        "paragraph": "In a {} land, a {} {} {} and made everyone laugh."
+    },                
+    "8":{
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: "
+        ],
+        "paragraph": "The {} {} was {} in the most {} way imaginable."
+    },               
+    "9":{
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: "
+        ],
+        "paragraph": "A {} {} decided to {} in a {} manner."
+    },               
+    "10":{
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: "
+        ],
+        "paragraph": "Once, a {} {} {} and created a {} uproar."
+    },
+    "11":{
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: "
+        ],
+        "paragraph": "On a {} day, a {} decided to {} and it turned into a {} adventure."
+    },
+    "12":{
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: "
+        ],
+        "paragraph": "In a {} world, a {} {} and created {} chaos."
+    },
+    "13":{
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: "
+        ],
+        "paragraph": "The {} {} {} and everyone cheered in {}."
+    },
+    "14":{
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: "
+        ],
+        "paragraph": "In the {} garden, a {} {} with {} speed."
+    },
+    "15":{
+        "inputs": [
+            "NOUN: ",
+            "ADJECTIVE: ",
+            "VERB: ",
+            "ADVERB: "
+        ],
+        "paragraph": "A {} decided to {} {} and it became a {} spectacle."
+    },
+    "16":{
+        "inputs": [
+            "SLANG WORD: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADJECTIVE: "
+        ],
+        "paragraph": "Yo, that party last night was so {}! We were {} and {} like there's no tomorrow. It was absolutely {}!"
+    },
+    "17":{
+        "inputs": [
+            "SLANG WORD: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADJECTIVE: "
+        ],
+        "paragraph": "I can't believe you pulled off that {} move! You totally {} that {} and it was so {}!"
+    },
+    "18":{
+        "inputs": [
+            "COLOR: ",
+            "ANIMAL: ",
+            "VERB: ",
+            "ADJECTIVE: "
+        ],
+        "paragraph": "The {} {} across the {} field, looking surprisingly {} and carefree."
+    },
+    "19":{
+        "inputs": [
+            "FOOD: ",
+            "CELEBRITY: ",
+            "VERB: ",
+            "ADJECTIVE: "
+        ],
+        "paragraph": "Last night, I dreamed I was {} with {}. We {} together and had the most {} time!"
+    },
+    "20":{
+        "inputs": [
+            "COUNTRY: ",
+            "SPORT: ",
+            "VERB: ",
+            "ADJECTIVE: "
+        ],
+        "paragraph": "In {}, they take {} very seriously. People {} with {} enthusiasm, and it's quite a sight!"
+    },
+    "21":{
+        "inputs": [
+            "MOVIE GENRE: ",
+            "OCCUPATION: ",
+            "VERB: ",
+            "ADJECTIVE: "
+        ],
+        "paragraph": "Imagine a {} film where the {} {} their way through a {} adventure. Now that's entertainment!"
+    },        
+    "22":{
+        "inputs": [
+            "INVENTION: ",
+            "SUPERHERO NAME: ",
+            "VERB: ",
+            "ADJECTIVE: "
+        ],
+        "paragraph": "With the new {} invention, {} can now {} in the most {} way imaginable!"
+    },        
+    "23":{
+        "inputs": [
+            "ADJECTIVE: ",
+            "SPORT: ",
+            "VERB: ",
+            "NOUN: "
+        ],
+        "paragraph": "The {} {} player decided to {} the {} just for fun. The crowd went wild!"
+    },        
+    "24":{
+        "inputs": [
+            "CITY: ",
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: "
+        ],
+        "paragraph": "In the heart of {}, there's a {} {} that {} with excitement every night."
+    },        
+    "25":{
+        "inputs": [
+            "FAMOUS PERSON: ",
+            "ACTIVITY: ",
+            "VERB: ",
+            "ADVERB: "
+        ],
+        "paragraph": "{} decided to try {} and ended up {}-style. It was absolutely {}!"
+    },        
+    "26":{
+        "inputs": [
+            "COLOR: ",
+            "VEHICLE: ",
+            "VERB: ",
+            "ADJECTIVE: "
+        ],
+        "paragraph": "The {} {} {} down the street, looking surprisingly {} and stylish."
+    },        
+    "27":{
+        "inputs": [
+            "FOOD: ",
+            "ANIMAL: ",
+            "VERB: ",
+            "ADJECTIVE: "
+        ],
+        "paragraph": "I once saw a {} {} {} in the most {} way possible. It was hilarious!"
+    },        
+    "28":{
+        "inputs": [
+            "MOVIE GENRE: ",
+            "ADJECTIVE: ",
+            "VERB: ",
+            "NOUN: "
+        ],
+        "paragraph": "Picture a {} film with {} characters who {} their way to a {} ending."
+    },        
+    "29":{
+        "inputs": [
+            "COUNTRY: ",
+            "ACTIVITY: ",
+            "VERB: ",
+            "ADJECTIVE: "
+        ],
+        "paragraph": "In {}, people love to {} with {} and {}. It's a sight to behold!"
+    },        
+    "30":{
+        "inputs": [
+            "ADJECTIVE: ",
+            "NOUN: ",
+            "VERB: ",
+            "ADVERB: "
+        ],
+        "paragraph": "In a {} world, a {} decided to {} and everyone joined in, {}."
+    }      
 }
