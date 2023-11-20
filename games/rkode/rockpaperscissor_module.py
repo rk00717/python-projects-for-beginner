@@ -1,6 +1,7 @@
+from rkode.game_base_module import GameBase
 from random import choice
 
-class RockPaperScissor:
+class RockPaperScissor(GameBase):
     win_condition = [
         ['r', 's'],
         ['s', 'p'],

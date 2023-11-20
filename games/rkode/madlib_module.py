@@ -1,8 +1,10 @@
-from json import load
-from random import randrange
+from rkode.game_base_module import GameBase
 from rkode.constant import MADLIB_DICT_PATH as data_path
 
-class Madlib:
+from json import load
+from random import randrange
+
+class Madlib(GameBase):
     def __init__(self):
         with open(data_path, mode = 'r', encoding = 'utf-8', errors = 'strict', buffering = 1) as file:
             self.content = load(file)

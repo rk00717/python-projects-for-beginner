@@ -4,12 +4,14 @@ from rkode.madlib_module import Madlib
 from rkode.guessthenumber_module import GuessTheNumber
 from rkode.rockpaperscissor_module import RockPaperScissor
 from rkode.hangman_module import Hangman
+from rkode.tictactoe_module import TicTacToe
 
 playlist = {
     "1": ["Madlib 🎓", Madlib()],
     "2": ["Guess The Number 🔢", GuessTheNumber()],
     "3": ["Rock Paper Scissor 🤞", RockPaperScissor()],
-    "4": ["Hangman 💔", Hangman()]
+    "4": ["Hangman 💔", Hangman()],
+    "5": ["Tic Tac Toe ❌⭕", TicTacToe()]
 }
 
 def display_playlist():

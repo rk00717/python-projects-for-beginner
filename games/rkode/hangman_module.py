@@ -1,8 +1,10 @@
+from rkode.game_base_module import GameBase
 from rkode.constant import WORD_DICT_PATH as data_path
+
 from json import load
 from random import choice
 
-class Hangman:
+class Hangman(GameBase):
     hearts = 5
     delimeter = "_"
 
