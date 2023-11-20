@@ -3,6 +3,7 @@ from rkode.constant import MADLIB_DICT_PATH as data_path
 
 from json import load
 from random import randrange
+from os import system
 
 class Madlib(GameBase):
     def __init__(self):
@@ -41,3 +42,4 @@ class Madlib(GameBase):
 
     def start_game(self):
         self.get_new_madlib()
+        system("pause")

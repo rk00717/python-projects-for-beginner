@@ -3,6 +3,7 @@ from rkode.constant import WORD_DICT_PATH as data_path
 
 from json import load
 from random import choice
+from os import system
 
 class Hangman(GameBase):
     hearts = 5
@@ -58,5 +59,5 @@ class Hangman(GameBase):
                 print("Not a valid guess...")
 
             print(f"{' '.join(display_word)}")
-        
 
+        system("pause")
