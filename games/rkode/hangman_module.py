@@ -29,15 +29,21 @@ class Hangman(GameBase):
         return True
 
     def start_game(self):
+        self.hearts = 5
+
         word = self.get_word()
         letters = list(word)
         used_letters = list()
         
         display_word = [self.delimeter for _ in word]
-        print(f"{' '.join(display_word)}")
 
         while True:
-            print(f"{self.hearts} ❤  left || {len(letters) - len(used_letters)} guesses || Guesses : {' '.join(used_letters)}")
+            system("cls")
+            
+            print("You are playing  -> HANGMAN \n")
+            print(f"{self.hearts} ❤  left || {len(letters) - len(used_letters)} guesses left || Your Guesses : {' '.join(used_letters)}")
+            print(f"\n{' '.join(display_word)}")
+
             user_guess = input("Guess the letter : ").upper()
             used_letters.append(user_guess)
 
@@ -47,17 +53,18 @@ class Hangman(GameBase):
                 letters[index] = self.delimeter
 
                 if self.check_game_over(letters):
-                    print(f"Yah!!! You Won... \nYou had {self.hearts}❤")
+                    system("cls")
+                    print(f"Yah!!! You guessed the word : {word.upper()}... ")
+                    print(f"You had {self.hearts} ❤ \nYour guessed letter : {' '.join(used_letters)}")
                     break
             else:
                 self.hearts -= 1
-
                 if(self.hearts == 0):
+                    system("cls")
                     print(f"Sad, but the person is no more...\nYou lost.\nCorrect word was {word}")
                     break
 
                 print("Not a valid guess...")
 
-            print(f"{' '.join(display_word)}")
 
         system("pause")
