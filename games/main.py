@@ -5,13 +5,15 @@ from rkode.guessthenumber_module import GuessTheNumber
 from rkode.rockpaperscissor_module import RockPaperScissor
 from rkode.hangman_module import Hangman
 from rkode.tictactoe_module import TicTacToe
+from rkode.minesweeper_module import Minesweeper
 
 playlist = {
     "1": ["Madlib 🎓", Madlib()],
     "2": ["Guess The Number 🔢", GuessTheNumber()],
     "3": ["Rock Paper Scissor 🤞", RockPaperScissor()],
     "4": ["Hangman 💔", Hangman()],
-    "5": ["Tic Tac Toe ❌⭕", TicTacToe()]
+    "5": ["Tic Tac Toe ❌⭕", TicTacToe()],
+    "6": ["Minesweeper 💣", Minesweeper()],
 }
 
 def display_playlist():
@@ -20,7 +22,7 @@ def display_playlist():
         counter += 1
         print(f"{counter}. {playlist[k][0]}")
 
-    print("\n0. Exit to desktop 😢")
+    print("\n0. Exit to CommandLine 😢")
 
     selection = input("Enter your choice : ")
     if selection == "0":
