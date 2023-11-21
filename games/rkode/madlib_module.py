@@ -41,5 +41,6 @@ class Madlib(GameBase):
         self.display_madlib()
 
     def start_game(self):
+        system("cls")
         self.get_new_madlib()
         system("pause")

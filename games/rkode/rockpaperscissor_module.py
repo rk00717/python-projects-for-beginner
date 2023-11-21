@@ -27,7 +27,7 @@ class RockPaperScissor(GameBase):
     def start_game(self):
         system("cls")
 
-        print("You are playing -> ✊🤚✌\n")
+        print("You are playing -> Rock✊ Paper🤚 Scissor✌\n")
 
         system_choice = choice(self.valid_gesture)
         valid_input = False
