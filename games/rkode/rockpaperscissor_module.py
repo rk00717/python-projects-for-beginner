@@ -25,7 +25,7 @@ class RockPaperScissor(GameBase):
             return False
 
     def start_game(self):
-        super.start_game()
+        super().start_game()
         system("cls")
 
         print("You are playing -> Rock✊ Paper🤚 Scissor✌\n")

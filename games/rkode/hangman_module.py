@@ -29,7 +29,7 @@ class Hangman(GameBase):
         return True
 
     def start_game(self):
-        super.start_game()
+        super().start_game()
         self.hearts = 5
 
         word = self.get_word()

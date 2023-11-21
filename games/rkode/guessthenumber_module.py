@@ -72,7 +72,7 @@ class GuessTheNumber(GameBase):
             min_guess_limit, max_guess_limit = max_guess_limit, min_guess_limit
 
     def start_game(self):
-        super.start_game()
+        super().start_game()
         system("cls")
         print("You are playing  -> GUESS THE NUMBER \n")
 
