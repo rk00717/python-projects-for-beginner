@@ -11,7 +11,7 @@ playlist = {
     "2": ["Guess The Number 🔢", GuessTheNumber()],
     "3": ["Rock Paper Scissor 🤞", RockPaperScissor()],
     "4": ["Hangman 💔", Hangman()],
-    # "5": ["Tic Tac Toe ❌⭕", TicTacToe()]
+    "5": ["Tic Tac Toe ❌⭕", TicTacToe()]
 }
 
 def display_playlist():

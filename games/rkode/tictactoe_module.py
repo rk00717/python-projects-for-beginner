@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from random import choice
+from time import sleep
 from os import system
 
 from rkode.game_base_module import GameBase
@@ -29,13 +30,17 @@ class User(PlayerBase):
         spot = None
         while not valid_spot:
             spot = input(f"{self.letter}'\'s turn. \nEnter your Move[1-9] : ")
-            if str(spot).isdigit:
+            if spot.isdigit:
+                spot = int(spot)
                 if spot in game.available_moves():
                     valid_spot = True
+                    break
                 else:
                     print("Invalid spot. Try again.")
             else:
                 print("Move should be a number.")
+
+        return spot
 
 class Board:
     def __init__(self):
@@ -48,25 +53,32 @@ class Board:
 
     @staticmethod
     def display_board_nums():
+        print("\nReference Board -> ")
         number_board = [[str(i) for i in range(j*3, (j+1)*3)] for j in range(3)]
         for row in number_board:
             print('| ' + ' | '.join(row) + ' |')
     
     def is_player_won(self, spot, player_symbol):
         row_index = spot//3
-        row = self.board[row_index+3 : (row_index + 1) *3]
-        if all([square == player_symbol for square in row]):
-            return True
+        row = self.board[row_index*3 : (row_index + 1) *3]
 
         col_index = spot%3
         col = [self.board[col_index+i*3] for i in range(3)]
-        if all([square == player_symbol for square in col]):
-            return True
 
+        row_res = [square == player_symbol for square in row]
+        col_res = [square == player_symbol for square in col]
+
+        if all(row_res) or all(col_res):
+            return True
+        
         if spot%2 == 0:
             diagonal_1 = [self.board[i] for i in [0, 4, 8]]
             diagonal_2 = [self.board[i] for i in [2, 4, 6]]
-            if all([square == player_symbol for square in diagonal_1]) or all([square == player_symbol for square in diagonal_2]):
+
+            diag_1_res = [square == player_symbol for square in diagonal_1]
+            diag_2_res = [square == player_symbol for square in diagonal_2]
+
+            if all(diag_1_res) or all(diag_2_res):
                 return True
 
         return False
@@ -87,37 +99,49 @@ class Board:
     def available_moves(self):
         return [i for i, spot in enumerate(self.board) if spot == ' ']
 
-    def play(self, game, player1, player2):
-        game.display_board_nums()
-        
+    def display_result(self, message):
+        system("cls")
+        print(f"\n{message}")
+        print("")
+        self.display_board()
+        print("")
+        system("pause")
+
+    def play(self, player1, player2):
         IsXTurn = True
-        while game.is_empty_spot_available:
-            spot = player1.get_move(game) if IsXTurn else player2.get_move(game)
+        while self.is_empty_spot_available:
+            system("cls")
+            print("You are playing -> Tic Tac Toe\n")
+            self.display_board_nums()
+            print("")
+            self.display_board()
+            print("")
+
+            spot = player1.get_move(self) if IsXTurn else player2.get_move(self)
 
             player_symbol = 'X' if IsXTurn else 'O'
 
-            game.make_move(spot, player_symbol)
+            self.make_move(spot, player_symbol)
             
-            print(f"{player_symbol}'s made move to spot {spot}")
-            game.display_board()
-            print("")
+            print(f"\n{player_symbol}'s made move to spot {spot}")
 
-            if game.winner:
-                print(f"{game.winner} won the game")
+            IsXTurn = not IsXTurn
+
+            if self.winner:
+                self.display_result(f"{self.winner} won the game")
+                break
+            elif self.get_spot_count == 0:
+                self.display_result("Match Draw...")
                 break
 
-            if not game.winner and game.get_spot_count == 0:
-                print(f"Match Draw...")
-                break
-            
-            IsXTurn != IsXTurn
+            sleep(1)
+
 
 class TicTacToe(GameBase):
     def start_game(self):
         player_1 = User('X')
         player_2 = User('O')
-        # player_2 = Computer('X')
+        # player_1 = Computer('X')
+        # player_2 = Computer('O')
         game = Board()
-        game.play(game, player_1, player_2)
-        system("pause")
-        # super().start_game()
+        game.play(player_1, player_2)
