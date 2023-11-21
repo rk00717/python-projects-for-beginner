@@ -39,5 +39,7 @@ class Madlib(GameBase):
 
     def start_game(self):
         system("cls")
+        print("You are playing -> Madlib\n")
+
         self.get_new_madlib()
         system("pause")
