@@ -41,7 +41,7 @@ class Hangman(GameBase):
             system("cls")
             
             print("You are playing  -> HANGMAN \n")
-            print(f"{self.hearts} ❤  left || {len(letters) - len(used_letters)} guesses left || Your Guesses : {' '.join(used_letters)}")
+            print(f"{self.hearts} ❤ hearts || {len(letters) - len(used_letters)} guesses left || Your Guesses : {' '.join(used_letters)}")
             print(f"\n{' '.join(display_word)}")
 
             user_guess = input("Guess the letter : ").upper()
@@ -55,7 +55,7 @@ class Hangman(GameBase):
                 if self.check_game_over(letters):
                     system("cls")
                     print(f"Yah!!! You guessed the word : {word.upper()}... ")
-                    print(f"You had {self.hearts} ❤ \nYour guessed letter : {' '.join(used_letters)}")
+                    print(f"You had {self.hearts} ❤ hearts \nYour guessed letter : {' '.join(used_letters)}")
                     break
             else:
                 self.hearts -= 1

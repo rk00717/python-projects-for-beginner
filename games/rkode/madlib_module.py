@@ -12,10 +12,7 @@ class Madlib(GameBase):
             print(f"{len(self.content)} madlibs found.")
 
     def pick_any_madlib(self):
-        range = len(self.content)
-        pickedValue = randrange(1, range)
-        print(f"{pickedValue} number is selected.")
-        return str(pickedValue)
+        return str(randrange(1, len(self.content)))
 
     def take_inputs(self, inputlist):
         formating_values = list()
