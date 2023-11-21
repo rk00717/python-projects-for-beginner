@@ -29,7 +29,7 @@ class User(PlayerBase):
         valid_spot = False
         spot = None
         while not valid_spot:
-            spot = input(f"{self.letter}'\'s turn. \nEnter your Move[1-9] : ")
+            spot = input(f"{self.letter}'s turn. \nEnter your Move[0-8] : ")
             if spot.isdigit:
                 spot = int(spot)
                 if spot in game.available_moves():
@@ -138,10 +138,18 @@ class Board:
 
 
 class TicTacToe(GameBase):
+    def take_player(self, player_symbol):
+        preference = input(f"Do you want to have player {player_symbol} as Human? [Y/N] : ").lower()
+        if preference == "y":
+            return User(player_symbol)
+
+        return Computer(player_symbol)
+
     def start_game(self):
-        player_1 = User('X')
-        player_2 = User('O')
-        # player_1 = Computer('X')
-        # player_2 = Computer('O')
+        system("cls")
+        print("You are playing -> Tic Tac Toe\n")
+
+        player_1 = self.take_player('X')
+        player_2 = self.take_player('O')
         game = Board()
         game.play(player_1, player_2)
