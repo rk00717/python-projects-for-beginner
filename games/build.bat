@@ -1,2 +1,2 @@
-pyinstaller --onefile --add-path "./rkode/jsonData/word_dict.json" --add-path "./rkode/jsonData/madlib_dict.json" main.py
+pyinstaller --onefile --add-data "./rkode/jsonData/word_dict.json;." --add-data "./rkode/jsonData/madlib_dict.json;." main.py
 pause
