@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from random import choice
 from time import sleep
 from os import system
+from math import inf
 
 from rkode.game_base_module import GameBase
 
@@ -13,13 +14,72 @@ class PlayerBase(ABC):
     def get_move(self, game):
         ...
 
-class Computer(PlayerBase):
+class DumbComputer(PlayerBase):
     def __init__(self, letter):
         super().__init__(letter)
 
     def get_move(self, game):
+        if not game.debug_mode:
+            print(f"{self.letter} is thinking!!!")
+            sleep(3)
         spot = choice(game.available_moves())
         return spot
+
+class SmartComputer(PlayerBase):
+    def __init__(self, letter):
+        super().__init__(letter)
+
+    def get_move(self, game):
+        if not game.debug_mode:
+            print(f"{self.letter} is thinking!!!")
+            sleep(3)
+        if len(game.available_moves()) == 9:
+            spot = choice(game.available_moves())
+        else:
+            spot = self.min_max(game, self.letter)["position"]
+
+        return spot
+
+    def min_max(self, state, player):
+        max_player = self.letter
+        min_player = 'O' if player == 'X' else 'X'
+
+        if state.winner == min_player:
+            spot_count = state.get_empty_spot + 1
+            return {
+                "position" : None,
+                "score" : 1 * spot_count if min_player == max_player else -1 * spot_count
+            }
+        elif not state.is_empty_spot_available:
+            return { "position" : None, "score" : 0}
+        
+        if player == max_player:
+            best_score = { "position" : None, "score" : -inf}
+        else:
+            best_score = { "position" : None, "score" : inf}
+
+        # Finding possible move
+        for possible_move in state.available_moves():
+            # making move
+            state.make_move(possible_move, player)
+            
+            # recurse the process
+            simulated_score = self.min_max(state, min_player)
+            
+            # undo the move
+            state.board[possible_move] = ' '
+            state.winner = None
+            simulated_score["position"] = possible_move
+            
+            # update result if necessary
+            if player == max_player:
+                if simulated_score["score"] > best_score["score"]:
+                    best_score = simulated_score
+            else:
+                if simulated_score["score"] < best_score["score"]:
+                    best_score = simulated_score
+
+        return best_score
 
 class User(PlayerBase):
     def __init__(self, letter):
@@ -43,6 +103,8 @@ class User(PlayerBase):
         return spot
 
 class Board:
+    debug_mode = True
+
     def __init__(self):
         self.board = [' ' for _ in range(9)]
         self.winner = None
@@ -93,13 +155,16 @@ class Board:
         return ' ' in self.board
     
     @property
-    def get_spot_count(self):
+    def get_empty_spot(self):
         return self.board.count(' ')
 
     def available_moves(self):
         return [i for i, spot in enumerate(self.board) if spot == ' ']
 
     def display_result(self, message):
+        if self.debug_mode:
+            return
+        
         system("cls")
         print(f"\n{message}")
         print("")
@@ -107,49 +172,86 @@ class Board:
         print("")
         system("pause")
 
-    def play(self, player1, player2):
+
+class TicTacToe(GameBase):
+    def ask(self, question):
+        preference = input(f"{question} [Y/N] : ").lower()
+        if preference == "y":
+            return True
+        
+        return False
+
+    def take_player(self, player_symbol):
+        if self.ask(f"Do you want to have player {player_symbol} as Human?"):
+            return User(player_symbol)
+
+        if self.ask("Do you want me to play smart?"):
+            return SmartComputer(player_symbol)
+        
+        return DumbComputer(player_symbol)
+
+    def play(self, game, player1, player2, debug_mode = False):
         IsXTurn = True
-        while self.is_empty_spot_available:
-            system("cls")
-            print("You are playing -> Tic Tac Toe\n")
-            self.display_board_nums()
+        game.debug_mode = debug_mode
+
+        while game.is_empty_spot_available:
+            if not game.debug_mode:
+                system("cls")
+                print("You are playing -> Tic Tac Toe\n")
+                game.display_board_nums()
+
             print("")
-            self.display_board()
+            game.display_board()
             print("")
 
-            spot = player1.get_move(self) if IsXTurn else player2.get_move(self)
+            spot = player1.get_move(game) if IsXTurn else player2.get_move(game)
 
             player_symbol = 'X' if IsXTurn else 'O'
 
-            self.make_move(spot, player_symbol)
+            game.make_move(spot, player_symbol)
             
             print(f"\n{player_symbol}'s made move to spot {spot}")
 
             IsXTurn = not IsXTurn
 
-            if self.winner:
-                self.display_result(f"{self.winner} won the game")
+            if game.winner:
+                game.display_result(f"{game.winner} won the game")
                 break
-            elif self.get_spot_count == 0:
-                self.display_result("Match Draw...")
+            elif game.get_empty_spot == 0:
+                game.display_result("Match Draw...")
                 break
 
-            sleep(1)
+            if not game.debug_mode:
+                sleep(1)
 
+    def debug_play(self):
+        xwin = 0
+        owin = 0
+        draw = 0
+        iterations = 1000
+        for _ in range(iterations):
+            print(f"ITERATION => {_}")
+            xP = SmartComputer('X')
+            oP = SmartComputer('O')
+            t = Board()
+            result = self.play(t, xP, oP, True)
+            if result == 'X':
+                xwin += 1
+            elif result == 'O':
+                owin += 1
+            else:
+                draw += 1
+            print(f"After {_}, The results are : \n{xwin} wins, {owin} wins, and {draw} draw")
 
-class TicTacToe(GameBase):
-    def take_player(self, player_symbol):
-        preference = input(f"Do you want to have player {player_symbol} as Human? [Y/N] : ").lower()
-        if preference == "y":
-            return User(player_symbol)
-
-        return Computer(player_symbol)
+        # print(f"After {iterations}, The results are : \n{xwin} wins, {owin} wins, and {draw} draw")
+        system("pause")
 
     def start_game(self):
         system("cls")
         print("You are playing -> Tic Tac Toe\n")
-
+        
+        # self.debug_play()
         player_1 = self.take_player('X')
         player_2 = self.take_player('O')
         game = Board()
-        game.play(player_1, player_2)
+        self.play(game, player_1, player_2)
