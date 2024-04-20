@@ -110,5 +110,5 @@ class Minesweeper(GameBase):
     def start_game(self):
         super().start_game()
         system("cls")
-        self.play(5,5)
+        self.play()
         system("pause")
