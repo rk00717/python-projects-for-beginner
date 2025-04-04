@@ -1,3 +1,4 @@
+import time
 from rkode.game_base_module import GameBase
 
 from random import randint
@@ -90,19 +91,19 @@ class Minesweeper(GameBase):
             row, col = map(int, dig_location.split(','))
             if (row < 0 or row >= board.board_size or col < 0 or col >= board.board_size):
                 print("Invalid dig location. Try Again!!!")
+                time.sleep(3)
                 continue
 
             did_successfully_dug = board.dig_at_location(row, col)
             if not did_successfully_dug:
-                system("cls")
                 print("Rest in peace, buddy...")
                 break
 
         if did_successfully_dug:
-            system("cls")
             print("Congrats Miner!!! You Did it great.")
+            time.sleep(3)
         else:
-            # print("Game Over Miner... :(")
+            print("Game Over Miner... :(")
             board.dug_spot = [(row, col) for row in range(board.board_size) for col in range(board.board_size)]
             
         print(board)

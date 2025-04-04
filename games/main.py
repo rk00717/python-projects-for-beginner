@@ -16,7 +16,7 @@ playlist = {
     "6": ["Minesweeper 💣", Minesweeper()],
 }
 
-def display_playlist():
+def show_playlist():
     counter = 0
     for k in playlist.keys():
         counter += 1
@@ -35,4 +35,4 @@ if __name__ == "__main__":
     while True:
         system("cls")
         print("\nFun with python 🐍!\n")
-        display_playlist()
+        show_playlist()
